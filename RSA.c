@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <gmp.h>
-
+#include <math.h>
 
 int main(int ac, char **av)
 {
@@ -13,7 +13,13 @@ int main(int ac, char **av)
 	char *num = NULL;
 	ssize_t read_count = 0;
 	mpz_t number;
+	mpz_t root, i;
+
 	mpz_init(number);
+	mpz_init(root);
+	mpZ_init(i);
+	
+
 
 
 	if (ac != 2)
@@ -35,14 +41,25 @@ int main(int ac, char **av)
 	}
 
 	num = strtok(str, "\n");
+	unsigned long long int j = 2;
 	while (num)
 	{
+		
 		mpz_set_str(number, num, 10);
+		mpz_sqrt(root,number);
+		while(i <= root)
+		{
+			printf("%llu",i);
+			j = j + 1;
+		}
+
+		gmp_printf("root --%Zd\n",root);
 		gmp_printf("%Zd\n", number);
 		num = strtok(NULL, "\n");
+		
 	}
+	mpz_clear(root);
 	mpz_clear(number);
-	printf("Last .. %c\n", str[read_count - 5]);
 	printf("finish\n");
 	close(fd);
 	return (0);
