@@ -19,9 +19,6 @@ int main(int ac, char **av)
 	mpz_init(root);
 	mpZ_init(i);
 	
-
-
-
 	if (ac != 2)
 	{
 		printf("Usage: factors <file>");
