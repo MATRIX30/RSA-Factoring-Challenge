@@ -8,7 +8,7 @@ int main(int ac, char **av)
 	char *lineptr;
 	size_t n = 0;
 	char *num;
-	unsigned long long i = 2;
+	unsigned long long i = 1;
 	unsigned long long number;
 	__ssize_t nread;
 	
